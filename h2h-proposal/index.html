@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Hike2Heal · Website Proposal</title>
+  <meta name="description" content="Interactive website proposal for Hike2Heal Recovery CIC — a digital home for a Birmingham-based recovery community.">
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hike2Heal · Website Proposal" />
+  <meta property="og:description" content="A digital home for the Hike2Heal community — turning curiosity into commitment." />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" href="assets/logo-mark.png" />
+  <!-- H2H website component styles first (btn, pill, eyebrow, icon-tile, etc.) -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Proposal deck styles override the H2H base where needed -->
+  <link rel="stylesheet" href="proposal-styles.css" />
+  <style>
+    input, textarea, select, button { font-family: inherit; }
+    :focus-visible { outline: 2px solid #7B2FFF; outline-offset: 2px; border-radius: 6px; }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Shared chrome and primitives from the H2H website design system -->
+  <script type="text/babel" src="icons.jsx"></script>
+  <script type="text/babel" src="sub-header.jsx"></script>
+  <script type="text/babel" src="hike-calendar.jsx"></script>
+
+  <!-- Homepage sections -->
+  <script type="text/babel" src="desktop-1-hero.jsx"></script>
+  <script type="text/babel" src="desktop-2-about-mission.jsx"></script>
+  <script type="text/babel" src="desktop-plan-hike.jsx"></script>
+  <script type="text/babel" src="desktop-3-journey-adventures-impact.jsx"></script>
+  <script type="text/babel" src="desktop-4-gallery-testimonial-footer.jsx"></script>
+  <script type="text/babel" src="desktop.jsx"></script>
+
+  <!-- Sub-pages -->
+  <script type="text/babel" src="event-page.jsx"></script>
+  <script type="text/babel" src="booking-page.jsx"></script>
+  <script type="text/babel" src="membership-page.jsx"></script>
+
+  <!-- Mobile -->
+  <script type="text/babel" src="mobile.jsx"></script>
+
+  <!-- Proposal slide deck -->
+  <script type="text/babel" src="proposal-slides.jsx"></script>
+
+  <script type="text/babel" data-presets="react">
+    ReactDOM.createRoot(document.getElementById("root")).render(<window.ProposalApp />);
+  </script>
+</body>
+</html>

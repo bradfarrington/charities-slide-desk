@@ -1,0 +1,11 @@
+{
+  "name": "h2h-proposal",
+  "version": "1.0.0",
+  "description": "Hike2Heal — interactive website proposal deck",
+  "scripts": {
+    "dev": "live-server --open=index.html --port=5173"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

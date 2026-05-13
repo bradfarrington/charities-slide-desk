@@ -1,0 +1,267 @@
+/* =====================================================================
+   Hike2Heal Recovery — Design Tokens
+   Colors, type, spacing, radii, shadows.
+   ===================================================================== */
+
+/* ---------- Fonts ---------- */
+/* Bricolage Grotesque — primary brand display + body face.
+   Variable font (opsz, wdth, wght) provided by Hike2Heal. */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("./fonts/BricolageGrotesque.ttf") format("truetype-variations"),
+       url("./fonts/BricolageGrotesque.ttf") format("truetype");
+  font-weight: 200 800;
+  font-stretch: 75% 100%;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Urbanist — secondary UI face (used across nav, micro-copy in Figma).
+   Pulled from Google Fonts; if hosting offline, swap to a self-hosted file. */
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap");
+
+/* =====================================================================
+   COLOR TOKENS
+   ===================================================================== */
+:root {
+  /* ---- Brand: gradient family pulled from the infinity mark ---- */
+  --h2h-violet:        #7B2FFF;   /* primary purple — buttons, links, mark */
+  --h2h-violet-deep:   #4E2BDF;   /* electric blue end of the gradient */
+  --h2h-magenta:       #D72ADF;   /* mid-gradient magenta */
+  --h2h-pink:          #FF3DC8;   /* hot pink — far end of mark */
+  --h2h-violet-soft:   #CBA3FF;   /* light lavender — secondary text on dark */
+  --h2h-violet-tint:   #F3E8FF;   /* lavender-tinted background panels */
+  --h2h-violet-wash:   rgba(203,163,255,0.25); /* header pill, soft hovers */
+
+  /* ---- Ink: deep, grounded base colors ---- */
+  --h2h-ink:           #0F0C27;   /* primary headings + dark surfaces */
+  --h2h-ink-2:         #1A1A31;   /* secondary heading / heavy body */
+  --h2h-forest:        #163C45;   /* deep teal — used on event card titles */
+  --h2h-graphite:      #333333;   /* default body copy */
+  --h2h-slate:         #505050;   /* secondary body / captions */
+
+  /* ---- Neutrals ---- */
+  --h2h-paper:         #FFFFFF;
+  --h2h-paper-2:       #FAFAFA;
+  --h2h-cream:         #FBF8FF;   /* off-white, slight lavender warmth */
+  --h2h-line:          #E6E6E6;   /* hairlines, dividers */
+  --h2h-line-soft:     rgba(22,60,69,0.12); /* card outlines on light */
+
+  /* ---- Supporting nature tones ---- */
+  --h2h-sage:          #B7CDB6;   /* muted natural green */
+  --h2h-sage-deep:     #5A7A5B;
+  --h2h-clay:          #D7B79A;   /* warm earth */
+  --h2h-sun:           #FEE581;   /* warm highlight, used sparingly */
+
+  /* ---- Semantic ---- */
+  --h2h-success:       #52DB82;
+  --h2h-success-tint:  #C0FECF;
+  --h2h-danger:        #F36565;
+  --h2h-warning:       #FE8E6C;
+  --h2h-info:          #7B2FFF;
+
+  /* ---- Foreground / Background semantic ---- */
+  --fg-strong:         var(--h2h-ink);
+  --fg-default:        var(--h2h-graphite);
+  --fg-muted:          var(--h2h-slate);
+  --fg-on-violet:      #FFFFFF;
+  --fg-link:           var(--h2h-violet);
+
+  --bg-page:           var(--h2h-paper);
+  --bg-panel:          var(--h2h-violet-tint);
+  --bg-card:           var(--h2h-paper);
+  --bg-pill:           var(--h2h-violet-wash);
+
+  /* ---- Brand gradients ---- */
+  --grad-brand:        linear-gradient(135deg, #7B2FFF 0%, #D72ADF 100%);
+  --grad-brand-full:   linear-gradient(90deg, #4E2BDF 0%, #7B2FFF 35%, #D72ADF 70%, #FF3DC8 100%);
+  --grad-brand-radial: radial-gradient(120% 80% at 30% 30%, #7B2FFF 0%, #D72ADF 60%, #FF3DC8 100%);
+  --grad-fade-up:      linear-gradient(180deg, rgba(15,12,39,0) 0%, rgba(15,12,39,0.65) 100%);
+}
+
+/* =====================================================================
+   TYPE TOKENS
+   ===================================================================== */
+:root {
+  --font-display: "Bricolage Grotesque", "Urbanist", system-ui, sans-serif;
+  --font-body:    "Bricolage Grotesque", "Urbanist", system-ui, sans-serif;
+  --font-ui:      "Urbanist", "Bricolage Grotesque", system-ui, sans-serif;
+  --font-mono:    "Fragment Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* type scale — from Figma usage counts */
+  --fs-hero:    68px;   /* H1 hero */
+  --fs-display: 54px;   /* secondary display */
+  --fs-h2:      42px;
+  --fs-h3:      36px;
+  --fs-h4:      28px;
+  --fs-h5:      24px;
+  --fs-h6:      20px;
+  --fs-body-lg: 18px;
+  --fs-body:    16px;
+  --fs-sm:      14px;
+  --fs-xs:      12px;
+
+  --lh-tight:    1.05;
+  --lh-snug:     1.2;
+  --lh-normal:   1.5;
+  --lh-relaxed:  1.6;
+
+  --tracking-tight:  -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+}
+
+/* =====================================================================
+   SHAPE — radius, shadow, spacing
+   ===================================================================== */
+:root {
+  /* Hike2Heal uses generously rounded everything; pills are common. */
+  --r-xs:   6px;
+  --r-sm:   10px;
+  --r-md:   12px;     /* card default */
+  --r-lg:   15px;     /* mission panel */
+  --r-xl:   25px;     /* large image card */
+  --r-2xl:  50px;     /* hero banner, primary button */
+  --r-pill: 100px;    /* header bar, full pills */
+  --r-full: 9999px;
+
+  --shadow-xs:  0 1px 2px rgba(15,12,39,0.04);
+  --shadow-sm:  0 2px 6px rgba(15,12,39,0.06);
+  --shadow-md:  0 8px 20px rgba(15,12,39,0.08);
+  --shadow-lg:  0 16px 40px rgba(15,12,39,0.12);
+  --shadow-glow:0 12px 32px rgba(123,47,255,0.28);
+
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+}
+
+/* =====================================================================
+   SEMANTIC TYPOGRAPHY (apply via class OR direct element selectors)
+   ===================================================================== */
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-default);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.h2h-eyebrow,
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-body);
+  letter-spacing: var(--tracking-wide);
+  text-transform: none; /* H2H eyebrows are sentence-cased, not all-caps */
+  color: var(--h2h-violet);
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-hero);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-strong);
+  margin: 0;
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--h2h-forest);
+  margin: 0;
+}
+
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  color: var(--h2h-ink);
+  margin: 0;
+}
+
+h4, .h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  color: var(--h2h-ink);
+  margin: 0;
+}
+
+h5, .h5 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h5);
+  line-height: 1.2;
+  color: var(--h2h-ink);
+  margin: 0;
+}
+
+h6, .h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-h6);
+  line-height: var(--lh-snug);
+  color: var(--h2h-ink);
+  margin: 0;
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-default);
+  margin: 0 0 1em 0;
+  text-wrap: pretty;
+}
+
+.p-sm, small {
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--fg-muted);
+}
+
+a {
+  color: var(--fg-link);
+  text-decoration: none;
+  transition: color 160ms ease, opacity 160ms ease;
+}
+a:hover { opacity: 0.78; }
+
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+}
+
+/* Utility — “lede” paragraph used directly under H1/H2 */
+.lede {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--h2h-slate);
+  max-width: 60ch;
+}
+
+/* Focus ring used across the system */
+:focus-visible {
+  outline: 2px solid var(--h2h-violet);
+  outline-offset: 3px;
+  border-radius: var(--r-xs);
+}
