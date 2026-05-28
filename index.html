@@ -2,22 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Hike2Heal · Website Proposal</title>
-  <meta name="description" content="Interactive website proposal for Hike2Heal Recovery CIC — a digital home for a Birmingham-based recovery community.">
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hike2Heal · Website Proposal" />
-  <meta property="og:description" content="A digital home for the Hike2Heal community — turning curiosity into commitment." />
-
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="icon" href="assets/logo-mark.png" />
-  <!-- H2H website component styles first (btn, pill, eyebrow, icon-tile, etc.) -->
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Proposal deck styles override the H2H base where needed -->
+  <title>Custom systems for the work that matters · Digital Craft</title>
+  <meta name="description" content="Bespoke websites, CRMs, and member portals for charities behind recovery, education and lived experience. Three real builds — Against the Odds, GamLEARN, Hike2Heal Recovery." />
+  <meta name="author" content="Digital Craft" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <link rel="canonical" href="https://future.thedigicraft.co.uk/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Digital Craft" />
+  <meta property="og:url" content="https://future.thedigicraft.co.uk/" />
+  <meta property="og:title" content="Custom systems for the work that matters · Digital Craft" />
+  <meta property="og:description" content="Bespoke websites, CRMs, and member portals for charities behind recovery, education and lived experience. Three real builds — Against the Odds, GamLEARN, Hike2Heal Recovery." />
+  <meta property="og:image" content="https://future.thedigicraft.co.uk/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Digital Craft — custom systems for the work that matters. Three real builds for Against the Odds, GamLEARN, and Hike2Heal Recovery." />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Custom systems for the work that matters · Digital Craft" />
+  <meta name="twitter:description" content="Bespoke websites, CRMs, and member portals for charities behind recovery, education and lived experience." />
+  <meta name="twitter:image" content="https://future.thedigicraft.co.uk/assets/og-image.png" />
+  <meta name="twitter:image:alt" content="Digital Craft — custom systems for the work that matters." />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="alternate icon" href="assets/dc-mark-black.png" />
+
+  <!-- Deck styles (DC tokens + deck styling). H2H base styles are loaded last
+       so the H2H case-study embeds still render correctly — but the deck shell
+       does not depend on them. -->
   <link rel="stylesheet" href="proposal-styles.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="tokens.css" />
+
   <style>
     input, textarea, select, button { font-family: inherit; }
-    :focus-visible { outline: 2px solid #7B2FFF; outline-offset: 2px; border-radius: 6px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
   </style>
 
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
@@ -27,28 +49,35 @@
 <body>
   <div id="root"></div>
 
-  <!-- Shared chrome and primitives from the H2H website design system -->
+  <!-- H2H website components (needed for the H2H case study and live demo overlay) -->
   <script type="text/babel" src="icons.jsx"></script>
   <script type="text/babel" src="sub-header.jsx"></script>
   <script type="text/babel" src="hike-calendar.jsx"></script>
-
-  <!-- Homepage sections -->
   <script type="text/babel" src="desktop-1-hero.jsx"></script>
   <script type="text/babel" src="desktop-2-about-mission.jsx"></script>
   <script type="text/babel" src="desktop-plan-hike.jsx"></script>
   <script type="text/babel" src="desktop-3-journey-adventures-impact.jsx"></script>
   <script type="text/babel" src="desktop-4-gallery-testimonial-footer.jsx"></script>
   <script type="text/babel" src="desktop.jsx"></script>
-
-  <!-- Sub-pages -->
   <script type="text/babel" src="event-page.jsx"></script>
   <script type="text/babel" src="booking-page.jsx"></script>
   <script type="text/babel" src="membership-page.jsx"></script>
-
-  <!-- Mobile -->
   <script type="text/babel" src="mobile.jsx"></script>
 
-  <!-- Proposal slide deck -->
+  <!-- Against the Odds CRM (visual recreation of the live app; pure babel-standalone JSX) -->
+  <script type="text/babel" src="ato-deck/ato-mocks.jsx"></script>
+
+  <!-- GamLEARN CRM + Portal components (for the GamLEARN case study). Load order matters:
+       primitives → shell → screen modules. They expose components on window.* -->
+  <script type="text/babel" src="gamlearn-deck/primitives.jsx"></script>
+  <script type="text/babel" src="gamlearn-deck/crm-shell.jsx"></script>
+  <script type="text/babel" src="gamlearn-deck/crm-triage.jsx"></script>
+  <script type="text/babel" src="gamlearn-deck/crm-screens-a.jsx"></script>
+  <script type="text/babel" src="gamlearn-deck/crm-screens-b.jsx"></script>
+  <script type="text/babel" src="gamlearn-deck/crm-screens-c.jsx"></script>
+  <script type="text/babel" src="gamlearn-deck/portal-screens.jsx"></script>
+
+  <!-- The deck itself -->
   <script type="text/babel" src="proposal-slides.jsx"></script>
 
   <script type="text/babel" data-presets="react">
