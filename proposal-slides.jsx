@@ -497,8 +497,10 @@ const ProposalApp = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Single-step slides (no second mobile substep) — slides that are content-only
-  const SINGLE_STEP = new Set([0, 1, 2, 6, 7, 8]);
+  // Single-step slides (no second mobile substep) — slides that are content-only.
+  // Cover (0) gets a mobile substep so the "Currently working with" logos aren't
+  // hidden behind the nav pill on small screens.
+  const SINGLE_STEP = new Set([1, 2, 6, 7, 8]);
 
   const next = () => {
     const cur = current;
@@ -579,7 +581,7 @@ const ProposalApp = () => {
                 </a>
                 <button className="dc-btn dc-btn-secondary" onClick={() => go(3)}>See recent work</button>
               </div>
-              <div className="trust-strip enter e-up d5">
+              <div className="trust-strip trust-strip--desktop enter e-up d5">
                 <div className="trust-strip__label">Currently working with</div>
                 <div className="trust-strip__logos">
                   <img src="assets/ato-logo.png" alt="Against the Odds" className="trust-strip__logo trust-strip__logo--ato" />
@@ -601,6 +603,14 @@ const ProposalApp = () => {
                 </div>
                 <div className="cover__phone cover__phone--lead">
                   <PhoneScreenshot src="IPHONE%20SCREENSHOTS/IMG_4816.PNG" lg />
+                </div>
+              </div>
+              <div className="trust-strip trust-strip--mobile">
+                <div className="trust-strip__label">Currently working with</div>
+                <div className="trust-strip__logos">
+                  <img src="assets/ato-logo.png" alt="Against the Odds" className="trust-strip__logo trust-strip__logo--ato" />
+                  <img src="assets/gamlearn-logo.png" alt="GamLEARN" className="trust-strip__logo trust-strip__logo--gamlearn" />
+                  <img src="assets/DARK.png" alt="Hike2Heal" className="trust-strip__logo trust-strip__logo--h2h" />
                 </div>
               </div>
             </div>

@@ -289,6 +289,8 @@ a { color: var(--accent); text-decoration: none; }
 .trust-strip__logo--h2h { height: 72px; }
 .slide--dark .trust-strip__label, .slide--ink .trust-strip__label { color: var(--dc-stone); }
 .slide--dark .trust-strip__logo--ato, .slide--ink .trust-strip__logo--ato { filter: brightness(0) invert(1); opacity: 0.95; }
+/* Mobile-only variant lives inside .slide__right and is hidden on desktop. */
+.trust-strip--mobile { display: none; }
 
 /* ---- Feature grid (bordered hairline grid, no shadow) ---- */
 .feature-grid {
@@ -1038,6 +1040,32 @@ a { color: var(--accent); text-decoration: none; }
   .trust-strip__logo--ato { height: 44px !important; }
   .trust-strip__logo--gamlearn { height: 32px !important; }
   .trust-strip__logo--h2h { height: 56px !important; }
+
+  /* Cover: the desktop trust strip + mock cluster don't fit on mobile.
+     Swap them for a centered mobile trust strip that lives on the second step. */
+  .trust-strip--desktop { display: none !important; }
+  .cover__mocks .cover__stage { display: none !important; }
+  .trust-strip--mobile {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+  .trust-strip--mobile .trust-strip__label {
+    font-size: 12px;
+  }
+  .trust-strip--mobile .trust-strip__logos {
+    flex-direction: column;
+    gap: 32px !important;
+    width: 100%;
+  }
+  .trust-strip--mobile .trust-strip__logo--ato { height: 64px !important; }
+  .trust-strip--mobile .trust-strip__logo--gamlearn { height: 48px !important; }
+  .trust-strip--mobile .trust-strip__logo--h2h { height: 80px !important; }
 
   .phone-mock { transform: scale(0.7) !important; transform-origin: center center !important; margin: -85px 0 !important; }
   .phone-mock--lg { transform: scale(0.7) !important; transform-origin: center center !important; margin: -85px 0 !important; }
