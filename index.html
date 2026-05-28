@@ -42,46 +42,47 @@
     :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
   </style>
 
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div id="root"></div>
 
   <!-- H2H website components (needed for the H2H case study and live demo overlay) -->
-  <script type="text/babel" src="icons.jsx"></script>
-  <script type="text/babel" src="sub-header.jsx"></script>
-  <script type="text/babel" src="hike-calendar.jsx"></script>
-  <script type="text/babel" src="desktop-1-hero.jsx"></script>
-  <script type="text/babel" src="desktop-2-about-mission.jsx"></script>
-  <script type="text/babel" src="desktop-plan-hike.jsx"></script>
-  <script type="text/babel" src="desktop-3-journey-adventures-impact.jsx"></script>
-  <script type="text/babel" src="desktop-4-gallery-testimonial-footer.jsx"></script>
-  <script type="text/babel" src="desktop.jsx"></script>
-  <script type="text/babel" src="event-page.jsx"></script>
-  <script type="text/babel" src="booking-page.jsx"></script>
-  <script type="text/babel" src="membership-page.jsx"></script>
-  <script type="text/babel" src="mobile.jsx"></script>
+  <script src="dist/icons.js"></script>
+  <script src="dist/sub-header.js"></script>
+  <script src="dist/hike-calendar.js"></script>
+  <script src="dist/desktop-1-hero.js"></script>
+  <script src="dist/desktop-2-about-mission.js"></script>
+  <script src="dist/desktop-plan-hike.js"></script>
+  <script src="dist/desktop-3-journey-adventures-impact.js"></script>
+  <script src="dist/desktop-4-gallery-testimonial-footer.js"></script>
+  <script src="dist/desktop.js"></script>
+  <script src="dist/event-page.js"></script>
+  <script src="dist/booking-page.js"></script>
+  <script src="dist/membership-page.js"></script>
+  <script src="dist/mobile.js"></script>
 
-  <!-- Against the Odds CRM (visual recreation of the live app; pure babel-standalone JSX) -->
-  <script type="text/babel" src="ato-deck/ato-mocks.jsx"></script>
+  <!-- Against the Odds CRM -->
+  <script src="dist/ato-deck/ato-mocks.js"></script>
 
-  <!-- GamLEARN CRM + Portal components (for the GamLEARN case study). Load order matters:
+  <!-- GamLEARN CRM + Portal components. Load order matters:
        primitives → shell → screen modules. They expose components on window.* -->
-  <script type="text/babel" src="gamlearn-deck/primitives.jsx"></script>
-  <script type="text/babel" src="gamlearn-deck/crm-shell.jsx"></script>
-  <script type="text/babel" src="gamlearn-deck/crm-triage.jsx"></script>
-  <script type="text/babel" src="gamlearn-deck/crm-screens-a.jsx"></script>
-  <script type="text/babel" src="gamlearn-deck/crm-screens-b.jsx"></script>
-  <script type="text/babel" src="gamlearn-deck/crm-screens-c.jsx"></script>
-  <script type="text/babel" src="gamlearn-deck/portal-screens.jsx"></script>
+  <script src="dist/gamlearn-deck/primitives.js"></script>
+  <script src="dist/gamlearn-deck/crm-shell.js"></script>
+  <script src="dist/gamlearn-deck/crm-triage.js"></script>
+  <script src="dist/gamlearn-deck/crm-screens-a.js"></script>
+  <script src="dist/gamlearn-deck/crm-screens-b.js"></script>
+  <script src="dist/gamlearn-deck/crm-screens-c.js"></script>
+  <script src="dist/gamlearn-deck/portal-screens.js"></script>
 
   <!-- The deck itself -->
-  <script type="text/babel" src="proposal-slides.jsx"></script>
+  <script src="dist/proposal-slides.js"></script>
 
-  <script type="text/babel" data-presets="react">
-    ReactDOM.createRoot(document.getElementById("root")).render(<window.ProposalApp />);
+  <script>
+    ReactDOM.createRoot(document.getElementById("root")).render(
+      React.createElement(window.ProposalApp)
+    );
   </script>
 </body>
 </html>

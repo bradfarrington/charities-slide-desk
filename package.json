@@ -1,11 +1,14 @@
 {
-  "name": "h2h-proposal",
+  "name": "charities-slide-deck",
   "version": "1.0.0",
-  "description": "Hike2Heal — interactive website proposal deck",
+  "description": "Digital Craft — charity systems proposal deck.",
   "scripts": {
-    "dev": "live-server --open=index.html --port=5173"
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch & live-server --open=index.html --port=5173",
+    "start": "live-server --open=index.html --port=5173"
   },
   "devDependencies": {
+    "esbuild": "^0.28.0",
     "live-server": "^1.2.2"
   }
 }
