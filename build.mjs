@@ -34,7 +34,13 @@ const options = {
   jsxFactory: 'React.createElement',
   jsxFragment: 'React.Fragment',
   target: ['es2020'],
-  minify: true,
+  minify: process.env.NODE_ENV !== 'development',
+  sourcemap: true,
+  // Wrap each file's top-level declarations in an IIFE so const/let names
+  // don't collide across scripts (e.g. CaseHeader exists in both crm-shell
+  // and proposal-slides). Components still publish themselves via window.*.
+  banner: { js: '(function(){' },
+  footer: { js: '})();' },
   logLevel: 'info',
 };
 
